@@ -11,7 +11,7 @@ export default function Toss() {
     }
 
     const animateResult = () => {
-        let result = initailRandomValue? 'tail': 'head';
+        let result = initailRandomValue? 'tails': 'heads';
         initailRandomValue = !initailRandomValue;
         if(randomValue>0) {
             randomValue--;
