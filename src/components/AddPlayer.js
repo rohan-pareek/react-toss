@@ -20,7 +20,7 @@ function AddPlayer(props) {
         <div>
             <form className = "add-player-form" onSubmit = {handleSubmit}>
                 <input type = "text" placeholder = "Enter Player Name" value = {player}
-                onChange = {e => setPlayer(e.target.value)} />
+                onChange = {e => setPlayer(e.target.value)} maxLength = {20} />
                 <button>Add Player</button>
             </form>
         </div>

@@ -13,11 +13,12 @@ class Team extends Component {
         duplicateList: [],
         common: '',
         btnText: 'Make Teams',
-        btnText2: 'Pin this Teams'
+        btnText2: 'Pin these Teams',
+        playersCount: 0
     }
 
     makeTeam = () => {
-        if (this.props.players.length>=2) {
+        if (this.props.players.length >= 2) {
             this.setState({
                 btnText: 'Making...'
             })
@@ -30,30 +31,38 @@ class Team extends Component {
                 counter2: 0
             })
             this.setState({
-                duplicateList: this.props.players.slice()
+                playersCount: this.props.players.length
             }, () => {
-                if (this.state.duplicateList.length % 2 !== 0) {
-                    let randomIndex = Math.floor(Math.random() * this.state.duplicateList.length);
-                    this.setState({
-                        common: this.state.duplicateList[randomIndex]
-                    }, () => {
-                        let tempArr = [...this.state.duplicateList];
-                        tempArr.splice(randomIndex, 1);
+                this.setState({
+                    duplicateList: this.props.players.slice()
+                }, () => {
+                    if (this.state.duplicateList.length % 2 !== 0) {
+                        let randomIndex = Math.floor(Math.random() * this.state.duplicateList.length);
                         this.setState({
-                            duplicateList: tempArr
+                            common: this.state.duplicateList[randomIndex]
                         }, () => {
-                            setTimeout(this.makeTeamA, 2000);
+                            let tempArr = [...this.state.duplicateList];
+                            tempArr.splice(randomIndex, 1);
+                            this.setState({
+                                duplicateList: tempArr
+                            }, () => {
+                                this.setState({
+                                    playersCount: this.state.duplicateList.length
+                                }, () => {
+                                    setTimeout(this.makeTeamA, 2000);
+                                })
+                            })
                         })
-                    })
-                } else {
-                    setTimeout(this.makeTeamA, 2000);
-                }
+                    } else {
+                        setTimeout(this.makeTeamA, 2000);
+                    }
+                })
             })
         }
     }
 
     makeTeamA = () => {
-        if (this.state.counter1 <= this.state.duplicateList.length / 2) {
+        if (this.state.counter1 < ((this.state.playersCount / 2))) {
             let randomIndex = Math.floor(Math.random() * this.state.duplicateList.length);
             this.setState({
                 teamA: [...this.state.teamA, this.state.duplicateList[randomIndex]]
@@ -76,7 +85,7 @@ class Team extends Component {
     }
 
     makeTeamB = () => {
-        if (this.state.counter2 <= this.state.duplicateList.length) {
+        if (this.state.counter2 < ((this.state.playersCount / 2))) {
             let randomIndex = Math.floor(Math.random() * this.state.duplicateList.length);
             this.setState({
                 teamB: [...this.state.teamB, this.state.duplicateList[randomIndex]]
@@ -110,8 +119,8 @@ class Team extends Component {
     handlePin = () => {
         const params = {
             groupID: this.props.groupID,
-            teamA: this.state.teamA.map(e=>e.player),
-            teamB: this.state.teamB.map(e=>e.player),
+            teamA: this.state.teamA.map(e => e.player),
+            teamB: this.state.teamB.map(e => e.player),
             common: this.state.common.player
         }
         this.props.pinTeam(JSON.stringify(params))
@@ -141,7 +150,7 @@ class Team extends Component {
                     </div>
                 </div>
                 {this.state.teamA.length > 0 && this.state.teamB.length > 0 &&
-                    <button onClick={this.handlePin} disabled = {this.props.loader}>{this.state.btnText2}</button>
+                    <button onClick={this.handlePin} disabled={this.props.loader}>{this.state.btnText2}</button>
                 }
             </>
         )

@@ -10,16 +10,19 @@ function LoginForm(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.login(JSON.stringify({
-            groupID
-        }))
+        if(groupID && groupID.trim()) {
+            props.login(JSON.stringify({
+                groupID: groupID.trim()
+            }))
+            setGroupID('');
+        }
     }
     return (
         <>
            <form className = "login-form" onSubmit = {handleSubmit}>
                 <input type = "text" placeholder = "Enter Your Group ID" 
                 onChange = {(e) => setGroupID(e.target.value)}
-                value = {groupID} />
+                value = {groupID} maxLength = {20} />
                 <button type = "submit">Login</button>  
             </form> 
         </>

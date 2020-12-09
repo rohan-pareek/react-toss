@@ -13,7 +13,7 @@ function PinnedTeams({ fetchPinnedTeams, ...props }) {
 
     return (
         <div className="previous-teams">
-            {!props.pinnedTeams && <p>No Pinned Team Found</p>}
+            {!props.pinnedTeams && <p>No Pinned Teams Found</p>}
             {props.pinnedTeams && props.pinnedTeams.common && <h3>Common: {props.pinnedTeams.common}</h3>}
             {props.pinnedTeams
                 && props.pinnedTeams.teamA
