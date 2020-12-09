@@ -13,6 +13,7 @@ function PinnedTeams({ fetchPinnedTeams, ...props }) {
 
     return (
         <div className="previous-teams">
+            {!props.pinnedTeams && <p>No Pinned Team Found</p>}
             {props.pinnedTeams && props.pinnedTeams.common && <h3>Common: {props.pinnedTeams.common}</h3>}
             {props.pinnedTeams
                 && props.pinnedTeams.teamA
@@ -26,7 +27,7 @@ function PinnedTeams({ fetchPinnedTeams, ...props }) {
                         </ul>
                     </div>
                     <div className="teamB">
-                        <h3>Team A</h3>
+                        <h3>Team B</h3>
                         <ul>{props.pinnedTeams.teamB.map((player, index) => (
                             <li key = {player+'-'+index}>{player}</li>
                         ))}

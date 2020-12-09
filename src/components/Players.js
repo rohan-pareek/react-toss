@@ -38,7 +38,7 @@ function Players({ fetchPlayers, ...props }) {
                 )
                 )}
                 {props.players && props.players.length === 0 &&
-                    <li>No Players found</li>
+                    <li>No Players Found</li>
                 }
             </ul>
 
