@@ -1,9 +1,9 @@
 import './App.css';
-import Toss from './Toss';
+import Main from './components/Main';
 
 function App() {
   return (
-    <Toss />
+    <Main />
   );
 }
 

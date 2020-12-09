@@ -11,9 +11,9 @@ export default function Toss() {
     }
 
     const animateResult = () => {
-        let result = initailRandomValue? 'tails': 'heads';
+        let result = initailRandomValue ? 'tails' : 'heads';
         initailRandomValue = !initailRandomValue;
-        if(randomValue>0) {
+        if (randomValue > 0) {
             randomValue--;
             document.getElementById('toss-section').innerText = result;
             setTimeout(animateResult, 80);
@@ -25,15 +25,10 @@ export default function Toss() {
     }
 
     return (
-        <div className = "app">
-            <div className = "app-title">
-                <h1>SukhaYaGilla</h1>
-                <p>Gudiyari Cricket Association</p>
-            </div>
-            <div className = "toss-section" id = "toss-section"></div>
-            <button onClick = {doToss}>Toss</button>
-            <button onClick = {reset}>Reset</button>
-            <h3>Made by Rohan</h3>
-        </div>
+        <>
+            <div className="toss-section" id="toss-section"></div>
+            <button onClick={doToss}>Toss</button>
+            <button onClick={reset}>Reset</button>
+        </>
     )
 }
