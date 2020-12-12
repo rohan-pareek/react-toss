@@ -26,7 +26,7 @@
 }
 
 .toss-section {
-  margin: 20px 0;
+  margin: 10px 0;
   font-weight: bold;
   font-size: 24px;
   color: #fff;
@@ -48,7 +48,12 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0;
+  padding: 20px 0;
+}
+
+.login-form:first-of-type {
+  border-bottom: 1px dashed #fff;
+  border-top: 1px dashed #fff;
 }
 
 input {
@@ -114,7 +119,8 @@ a.active {
 }
 
 .footer {
-  color: #fff;
+  background-color: #ddd;
+  width: 100%;
 }
 
 .players ul {
@@ -171,14 +177,34 @@ a.active {
   border-right: 1px solid #ddd;
 }
 
-.footer h3 {
-  margin-top: 80px;
-}
-
 button:disabled {
   cursor: wait;
   background-color: #555;
   pointer-events: none;
 }
 
+.successMessage {
+  color: green;
+  padding: 5px;
+  text-align: center;
+  background-color: lightgreen;
+  margin: 5px 0;
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid currentColor;
+}
 
+.errorMessage {
+  color: red;
+  padding: 5px;
+  text-align: center;
+  background-color: lightpink;
+  margin: 5px 0;
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid currentColor;
+}
+
+.toss-wrapper {
+  padding: 20px 0;
+}

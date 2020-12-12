@@ -6,9 +6,13 @@ const PIN_TEAMS = 'PIN_TEAMS';
 const FETCH_PINNED_TEAM = 'FETCH_PINNED_TEAM';
 
 const LOGIN = 'LOGIN';
+const SIGNUP = 'SIGNUP';
 const LOGOUT = 'LOGOUT';
 
 const LOADER = 'LOADER';
+
+const SUCCESS = 'SUCCESS';
+const ERROR = 'ERROR';
 
 export {
     ADD_PLAYER,
@@ -18,5 +22,8 @@ export {
     FETCH_PINNED_TEAM,
     LOADER,
     LOGIN,
-    LOGOUT
+    LOGOUT,
+    SIGNUP,
+    SUCCESS,
+    ERROR
 }

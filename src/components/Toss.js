@@ -25,10 +25,10 @@ export default function Toss() {
     }
 
     return (
-        <>
+        <div className = "toss-wrapper">
             <div className="toss-section" id="toss-section"></div>
             <button onClick={doToss}>Toss</button>
             <button onClick={reset}>Reset</button>
-        </>
+        </div>
     )
 }

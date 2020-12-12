@@ -1,5 +1,5 @@
 import { baseURL } from '../config';
-import { LOGIN, LOGOUT, LOADER } from '../actionTypes';
+import { LOGIN, LOGOUT, LOADER, SUCCESS, ERROR } from '../actionTypes';
 
 export const login = (payload) => {
     return (dispatch) => {
@@ -30,6 +30,41 @@ export const login = (payload) => {
             })
     }
 }
+
+export const signup = (payload) => {
+    return (dispatch) => {
+        dispatch({
+            type: LOADER,
+            active: true
+        })
+        fetch(baseURL + '/group/addGroup', {
+            method: 'POST',
+            body: payload,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                dispatch({
+                    type: LOADER,
+                    active: false
+                })
+                if (data.statusCode === 1) {
+                    dispatch({
+                        type: SUCCESS,
+                        payload: data.statusMessage
+                    })
+                } else {
+                    dispatch({
+                        type: ERROR,
+                        payload: data.statusMessage
+                    })
+                }
+            })
+    }
+}
+
 
 export const logout = () => {
     return (dispatch) => {

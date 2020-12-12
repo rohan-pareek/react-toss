@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-d
 import Dashboard from './Dashboard';
 import { connect } from 'react-redux';
 import { login } from '../actions/group';
+import SignupForm from './SignupForm';
 
 function Main({login, ...props}) {
 
@@ -26,7 +27,9 @@ function Main({login, ...props}) {
                 <Switch>
                     <Route exact path="/" >
                         {props.isLoggedIn ? <Redirect to="/dashboard" /> : <><Toss />
-                        <LoginForm /></>}
+                        <LoginForm />
+                        <SignupForm />
+                        </>}
                     </Route>
                     <Route path="/dashboard" component={Dashboard} />
                 </Switch>
