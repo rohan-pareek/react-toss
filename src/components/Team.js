@@ -149,6 +149,10 @@ class Team extends Component {
                         </ul>}
                     </div>
                 </div>
+                <div className="team-note">
+                    <i className="fa fa-info-circle" aria-hidden="true"></i>
+                    &nbsp;This team comprises of players that has been added for the group '{this.props.groupID}'
+                    </div>
                 {this.state.teamA.length > 0 && this.state.teamB.length > 0 &&
                     <button onClick={this.handlePin} disabled={this.props.loader}>{this.state.btnText2}</button>
                 }

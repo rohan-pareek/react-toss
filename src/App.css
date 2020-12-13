@@ -208,3 +208,61 @@ button:disabled {
 .toss-wrapper {
   padding: 20px 0;
 }
+
+.team-note {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal {
+  min-height: 150px;
+  width: 300px;
+  background-color: #fff;
+  position: relative;
+}
+
+.modal-header {
+  padding: 10px;
+  background-color: #444;
+  color: #fff;
+}
+
+.modal-body {
+  padding: 15px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.modal-footer {
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.modal-footer button {
+  padding: 8px !important;
+  height: auto;
+  width: 100px;
+}
+
+.modal-close {
+  float: right;
+  cursor: pointer;
+}
