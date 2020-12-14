@@ -300,5 +300,8 @@ button:disabled {
 }
 
 .wa-share {
-  color: lightgreen !important;
+  background-color: lightgreen !important;
+  width: 200px !important;
+  margin: 5px auto;
+  border-radius: 5px;
 }
