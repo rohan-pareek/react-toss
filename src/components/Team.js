@@ -130,10 +130,11 @@ class Team extends Component {
         let waText = '';
         const teamA = this.state.teamA;
         const teamB = this.state.teamB;
-        waText = 'Team A:\n' + teamA.map(e => e.player).join('\n') + '\n\nTeam B:\n' + teamB.map(e => e.player).join('\n');
+        waText = 'Teams for '+this.props.groupID+'%0a%0aTeam A:%0a' + teamA.map(e => e.player).join('%0a') + '%0a%0aTeam B:%0a' + teamB.map(e => e.player).join('%0a');
         if(this.state.common.player) {
-            waText = 'Common: '+this.state.common.player+'\n\n' + waText;
+            waText = 'Common: '+this.state.common.player+'%0a%0a' + waText;
         }
+        console.log(waText)
         return (
             <>
                 <button onClick={() => this.makeTeam()} disabled={this.state.btnText === 'Making...'}>{this.state.btnText}</button>
