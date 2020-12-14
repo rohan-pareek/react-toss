@@ -156,6 +156,13 @@ class Team extends Component {
                 {this.state.teamA.length > 0 && this.state.teamB.length > 0 &&
                     <button onClick={this.handlePin} disabled={this.props.loader}>{this.state.btnText2}</button>
                 }
+                <a className = "wa-share" href=
+                    "whatsapp://send?text=GFG Example for whatsapp sharing"
+                    data-action="share/whatsapp/share"
+                    target="_blank"
+                    rel="noreferrer">
+                    Share to whatsapp
+    </a>
             </>
         )
     }

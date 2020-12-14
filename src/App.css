@@ -298,3 +298,7 @@ button:disabled {
     transform: rotate(360deg);
   }
 }
+
+.wa-share {
+  color: lightgreen !important;
+}
