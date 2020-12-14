@@ -130,7 +130,10 @@ class Team extends Component {
         let waText = '';
         const teamA = this.state.teamA;
         const teamB = this.state.teamB;
-        waText = 'Team A: ' + teamA.join('\n') + '\n\n' + teamB.join('\n');
+        waText = 'Team A:\n' + teamA.map(e => e.player).join('\n') + '\n\nTeam B:\n' + teamB.map(e => e.player).join('\n');
+        if(this.state.common.player) {
+            waText = 'Common: '+this.state.common.player+'\n\n' + waText;
+        }
         return (
             <>
                 <button onClick={() => this.makeTeam()} disabled={this.state.btnText === 'Making...'}>{this.state.btnText}</button>
@@ -161,11 +164,11 @@ class Team extends Component {
                     <button onClick={this.handlePin} disabled={this.props.loader}>{this.state.btnText2}</button>
                 }
                 {this.state.teamA && this.state.teamA.length > 0 && <a className="wa-share"
-                    href={'whatsapp://send?text' + waText}
+                    href={'whatsapp://send?text=' + waText}
                     data-action="share/whatsapp/share"
                     target="_blank"
                     rel="noreferrer">
-                <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                <i className="fa fa-whatsapp" aria-hidden="true"></i>
                         &nbsp;Share these Teams
             </a>}
             </>
