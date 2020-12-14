@@ -130,10 +130,11 @@ class Team extends Component {
         let waText = '';
         const teamA = this.state.teamA;
         const teamB = this.state.teamB;
-        waText = 'Teams for '+this.props.groupID+'%0a%0aTeam A:%0a' + teamA.map(e => e.player).join('%0a') + '%0a%0aTeam B:%0a' + teamB.map(e => e.player).join('%0a');
+        waText = '%0a%0aTeam A:%0a' + teamA.map(e => e.player).join('%0a') + '%0a%0aTeam B:%0a' + teamB.map(e => e.player).join('%0a');
         if(this.state.common.player) {
-            waText = 'Common: '+this.state.common.player+'%0a%0a' + waText;
+            waText = '%0a%0aCommon: '+this.state.common.player + waText;
         }
+        waText = 'Teams for '+this.props.groupID + waText;
         console.log(waText)
         return (
             <>
